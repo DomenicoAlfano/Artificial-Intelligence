@@ -1,0 +1,25 @@
+INDEX VERSION 1.129+/Users/domenicoalfano/Università/Master/Workspace/.metadata/.plugins/org.eclipse.jdt.core
+365018563.index
+533301414.index
+3353252374.index
+1206261241.index
+748459345.index
+1911644267.index
+4091977978.index
+1271342938.index
+1649724347.index
+3466414993.index
+2727736440.index
+2201050720.index
+2358181626.index
+3505409215.index
+2571645808.index
+2585852906.index
+2565910717.index
+3187173715.index
+2182275090.index
+546844249.index
+1560701503.index
+829351960.index
+1733064856.index
+1213069161.index

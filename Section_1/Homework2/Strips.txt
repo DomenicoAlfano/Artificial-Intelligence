@@ -1,0 +1,83 @@
+
+Predicate Schema:
+
+adj(sq-1,sq-2)
+white(sq)
+at(x,sq)
+have(a,x)
+close-to(x,ct)
+closet(ct)
+machine(m)
+loaded(x,m)
+runned(x,m)
+object(x)
+takeable(x)
+robot(a)
+isfree(a)
+
+Initial state Schema:
+
+Start:   
+  EFFECTS: robot(a), at(a,x), at(table_cloth, sq1), at(dishes, sq2), at(trays, sq3)
+
+Action Schema:
+
+Action move(a,x,y):
+  PRECOND: robot(a), at(a,x), adj(x,y), white(x), white (y) 
+   
+  EFFECTS: at(a,y), not(at (a,x))
+)
+
+Action pick-up(a,o,wa,wo):
+  PRECOND: robot (a), takeable(o), at(a, wa), at(o, wo), adj(wa, wo) 
+    
+  EFFECTS: have(a,o), not(at (o, wo)), not(isfree (a))
+)
+
+Action load(a, o, wa, m,wm):
+  PRECOND: robot(a), have(a, o), machine(m), object(o), at(m, wm), at(a, wa), adj(wa, wm),
+  EFFECTS: at(o, wm), loaded(o, m), loaded(machine), not(have (a, o)), isfree(a) 
+
+Action run(a, wa, m, wm, o):
+    PRECOND: loaded(o, m), isfree(a), robot(a), machine(m), at(a, wa), at(m, wm), adj(wa, wm)
+    
+    EFFECTS: runned(o, m) 
+) 
+
+Action tidy-up(a, o, wa, ct, wct):
+    PRECOND: have(a, o), closet(ct), takeable(o), at (ct, wct), at (a, wa), adj (wa, wct)
+
+    EFFECTS:  close-to(o, ct), not(have (a,o))
+)
+
+Goal Schema:
+
+Goal:
+   PRECOND: runned(table_cloth, washing-machine), runned(dishes, dish-washer), close-to(table_cloth, table),
+		 close-to(dishes, Kitchen-Closet), close-to(trays, Kitchen-Closet)
+
+
+
+Predicate Schema:
+
+adj(sq-1,sq-2)
+white(sq)
+at(a,sq)
+robot(a)
+
+Initial state Schema:
+
+Start:   
+  EFFECTS: robot(a), at(a,x)
+
+Action Schema:
+
+Action( move(a,x,y),
+  PRECOND: robot(a), at(a,x), adj(x,y), white(x), white (y)
+	
+  EFFECTS: at(a,y), not(at (a,x))
+
+Goal Schema:
+
+Goal:
+   PRECOND: at(a,y)
